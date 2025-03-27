@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-08761eee33a0cd63339cee731449c234"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "School Type", "type": "nominal"}, "column": {"field": "School Type", "type": "nominal"}, "x": {"field": "Race", "sort": "-y", "title": "Race/Ethnicity", "type": "nominal"}, "y": {"field": "Percentage", "scale": {"domain": [0, 100]}, "title": "Percentage of Students", "type": "quantitative"}}, "height": 400, "title": "Racial Composition between Public and Private Schools", "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-08761eee33a0cd63339cee731449c234": [{"Race": "American Indian/Alaska Native", "School Type": "Public Schools", "Percentage": 1.0106574188663873}, {"Race": "Asian", "School Type": "Public Schools", "Percentage": 4.997959198984405}, {"Race": "Hispanic", "School Type": "Public Schools", "Percentage": 25.903954333306146}, {"Race": "Black", "School Type": "Public Schools", "Percentage": 15.426594055546502}, {"Race": "White", "School Type": "Public Schools", "Percentage": 48.89650888143513}, {"Race": "Native Hawaiian/Pacific Islander", "School Type": "Public Schools", "Percentage": 0.3504798396474722}, {"Race": "Two or More Races", "School Type": "Public Schools", "Percentage": 3.4138462722139633}, {"Race": "American Indian/Alaska Native", "School Type": "Private Schools", "Percentage": 0.7200127406568516}, {"Race": "Asian", "School Type": "Private Schools", "Percentage": 5.901001132289111}, {"Race": "Hispanic", "School Type": "Private Schools", "Percentage": 11.294976658650446}, {"Race": "Black", "School Type": "Private Schools", "Percentage": 11.703509409045889}, {"Race": "White", "School Type": "Private Schools", "Percentage": 65.78709080611667}, {"Race": "Native Hawaiian/Pacific Islander", "School Type": "Private Schools", "Percentage": 0.5101882608285364}, {"Race": "Two or More Races", "School Type": "Private Schools", "Percentage": 4.063555146538298}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
